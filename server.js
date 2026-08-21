@@ -115,7 +115,7 @@ app.get('/', async (req, res) => {
   }
 });
 
-// ---------- DETALLE FILM: /movie/:id/:slug? ----------
+// ---------- DETIL FILM: /movie/:id/:slug? ----------
 app.get('/movie/:id/:slug?', async (req, res) => {
   const { id } = req.params;
   try {
@@ -149,8 +149,8 @@ app.get('/movie/:id/:slug?', async (req, res) => {
             <span class="m-item">${(data.release_date || '').slice(0, 4)}</span>
           </div>
           ${genreRow(data.genres)}
-          <div class="action-buttons">
-            <a href="${watchUrl}" class="btn-watch" target="_blank" rel="nofollow">Jetzt streamen ▸</a>
+          <div class="action-buttons" style="margin-top: 20px;">
+            <a href="${watchUrl}" class="btn-watch" style="padding: 12px 28px; font-size: 16px; font-weight: bold; background: #e50914; color: #fff; border-radius: 6px; text-decoration: none; display: inline-block;" target="_blank" rel="nofollow">▶ Jetzt streamen</a>
           </div>
         </div>
       </div>
@@ -179,7 +179,7 @@ app.get('/movie/:id/:slug?', async (req, res) => {
   }
 });
 
-// ---------- DETALLE SERIE: /tv/:id/:slug? ----------
+// ---------- DETIL SERIE: /tv/:id/:slug? ----------
 app.get('/tv/:id/:slug?', async (req, res) => {
   const { id } = req.params;
   try {
@@ -226,8 +226,8 @@ app.get('/tv/:id/:slug?', async (req, res) => {
             <span class="m-item">${data.number_of_seasons || '-'} Staffeln</span>
           </div>
           ${genreRow(data.genres)}
-          <div class="action-buttons">
-            <a href="${watchUrl}" class="btn-watch" target="_blank" rel="nofollow">Jetzt streamen ▸</a>
+          <div class="action-buttons" style="margin-top: 20px;">
+            <a href="${watchUrl}" class="btn-watch" style="padding: 12px 28px; font-size: 16px; font-weight: bold; background: #e50914; color: #fff; border-radius: 6px; text-decoration: none; display: inline-block;" target="_blank" rel="nofollow">▶ Jetzt streamen</a>
           </div>
         </div>
       </div>
@@ -270,7 +270,7 @@ app.get('/watch/:type/:id', async (req, res) => {
     const title = data.title || data.name || 'video';
     const itemSlug = slugify(title);
 
-    const targetUrl = `https://zeromovies4k.net/es/watch/${type}/${id}/${itemSlug}`;
+    const targetUrl = `https://moviegate.bolt.host/de/${type}/${id}/${itemSlug}`;
 
     const bodyHtml = `
       <div style="max-width: 600px; margin: 80px auto; text-align: center; padding: 40px; background: var(--card); border: 1px solid var(--line); border-radius: 12px;">
@@ -279,7 +279,7 @@ app.get('/watch/:type/:id', async (req, res) => {
         <div style="margin-bottom: 30px;">
           <div style="width: 50px; height: 50px; border: 4px solid var(--line); border-top-color: var(--red); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
         </div>
-        <a href="${targetUrl}" class="btn-watch" style="display: inline-block;">Jetzt manuell fortfahren ▸</a>
+        <a href="${targetUrl}" class="btn-watch" style="display: inline-block; padding: 12px 24px; background: #e50914; color: #fff; border-radius: 6px; text-decoration: none;">Jetzt manuell fortfahren ▸</a>
       </div>
       <style>
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -307,12 +307,12 @@ app.get('/watch/:type/:id', async (req, res) => {
 
     res.send(layout({ headHtml, bodyHtml, activeTab: '' }));
   } catch (e) {
-    const targetUrl = `https://zeromovies4k.net/es/watch/${type}/${id}`;
+    const targetUrl = `https://moviegate.bolt.host/de/${type}/${id}`;
     res.redirect(targetUrl);
   }
 });
 
-// ---------- AKTOR / PERSON DETAIL ----------
+// ---------- AKTOR / PERSON DETAIL (SUPAYA BISA DIKLIK) ----------
 app.get('/person/:id/:slug?', async (req, res) => {
   const { id } = req.params;
   try {
