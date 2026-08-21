@@ -115,7 +115,7 @@ app.get('/', async (req, res) => {
   }
 });
 
-// ---------- DETIL FILM: /movie/:id/:slug? ----------
+// ---------- DETAIL FILM: /movie/:id/:slug? ----------
 app.get('/movie/:id/:slug?', async (req, res) => {
   const { id } = req.params;
   try {
@@ -150,7 +150,7 @@ app.get('/movie/:id/:slug?', async (req, res) => {
           </div>
           ${genreRow(data.genres)}
           <div class="action-buttons" style="margin-top: 20px;">
-            <a href="${watchUrl}" class="btn-watch" style="padding: 12px 28px; font-size: 16px; font-weight: bold; background: #e50914; color: #fff; border-radius: 6px; text-decoration: none; display: inline-block;" target="_blank" rel="nofollow">▶ Jetzt streamen</a>
+            <a href="${watchUrl}" class="btn-watch" style="padding: 14px 32px; font-size: 18px; font-weight: bold; background: #e50914; color: #fff; border-radius: 8px; text-decoration: none; display: inline-block; box-shadow: 0 4px 12px rgba(229, 9, 20, 0.4);" target="_blank" rel="nofollow">▶ Jetzt streamen</a>
           </div>
         </div>
       </div>
@@ -179,7 +179,7 @@ app.get('/movie/:id/:slug?', async (req, res) => {
   }
 });
 
-// ---------- DETIL SERIE: /tv/:id/:slug? ----------
+// ---------- DETAIL SERIE: /tv/:id/:slug? ----------
 app.get('/tv/:id/:slug?', async (req, res) => {
   const { id } = req.params;
   try {
@@ -227,7 +227,7 @@ app.get('/tv/:id/:slug?', async (req, res) => {
           </div>
           ${genreRow(data.genres)}
           <div class="action-buttons" style="margin-top: 20px;">
-            <a href="${watchUrl}" class="btn-watch" style="padding: 12px 28px; font-size: 16px; font-weight: bold; background: #e50914; color: #fff; border-radius: 6px; text-decoration: none; display: inline-block;" target="_blank" rel="nofollow">▶ Jetzt streamen</a>
+            <a href="${watchUrl}" class="btn-watch" style="padding: 14px 32px; font-size: 18px; font-weight: bold; background: #e50914; color: #fff; border-radius: 8px; text-decoration: none; display: inline-block; box-shadow: 0 4px 12px rgba(229, 9, 20, 0.4);" target="_blank" rel="nofollow">▶ Jetzt streamen</a>
           </div>
         </div>
       </div>
@@ -312,7 +312,7 @@ app.get('/watch/:type/:id', async (req, res) => {
   }
 });
 
-// ---------- AKTOR / PERSON DETAIL (SUPAYA BISA DIKLIK) ----------
+// ---------- AKTOR / PERSON DETAIL (TMDB DATABASE) ----------
 app.get('/person/:id/:slug?', async (req, res) => {
   const { id } = req.params;
   try {
